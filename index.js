@@ -29,7 +29,7 @@ app.use(router);
 */
 
 app.get('/alimentaire', (req,res) => {    
-  res.render('home', {alimentaires})});
+  res.render('alimentaire', {alimentaires})});
 
 app.post('/alimentaire', (req,res) => { 
   alimentaires.push(req.body)

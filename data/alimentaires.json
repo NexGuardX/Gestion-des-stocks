@@ -26,6 +26,12 @@
     "article": "Yop",
     "quantité": 1,
     "catégorie": "Yaourts"
+},
+{
+    "id":5,
+    "article": "Tomates",
+    "quantité": 1,
+    "catégorie": "Fruits"
 }
 
 ]
