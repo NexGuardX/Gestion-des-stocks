@@ -1,5 +1,5 @@
 INSERT INTO public.alimentaire(
-	 article, "quantité", "catégorie")
+	 "article", "quantité", "catégorie")
 	VALUES 
 	( 'Yaourt','1' ,'Frais'),
 	( 'Fromage','1' ,'Frais'),

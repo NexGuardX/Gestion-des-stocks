@@ -10,4 +10,14 @@ const sequelize = new Sequelize(`postgres://${process.env.PGUSER}:${process.env.
   }
 })
 
+async function testDb(){
+  
+try {
+  await sequelize.authenticate();
+  console.log('Connection has been established successfully.');
+} catch (error) {
+  console.error('Unable to connect to the database:', error);
+}
+}
+testDb();
 module.exports = sequelize;
