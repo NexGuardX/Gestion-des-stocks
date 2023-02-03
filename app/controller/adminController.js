@@ -1,4 +1,4 @@
-const { Alimentaire, Bébé, Entretien_nettoyage, Hygiène, Liste } = require('../models');
+const { Alimentaire, Bébé, Entretien, Hygiène, Liste } = require('../models');
 
 module.exports = {
     async handlealiment(request, response) {

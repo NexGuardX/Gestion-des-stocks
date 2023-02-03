@@ -1,6 +1,6 @@
 
 const { DataTypes, Model } = require('sequelize');
-const sequelize = require('../database');
+const sequelize = require('../database/database');
 
 class Hygiène extends Model { }
 

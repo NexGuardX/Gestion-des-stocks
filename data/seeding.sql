@@ -13,7 +13,7 @@ INSERT INTO public.bébé(
 	VALUES 
 	( 'couche',1 ,'hygiènes');
 
-INSERT INTO public.entretien_nettoyage(
+INSERT INTO public.entretien(
 	 "article", "quantité", "catégorie")
 	VALUES 
 	( 'lessive',1 ,'lessives');
@@ -26,7 +26,7 @@ INSERT INTO public.hygiène(
 	( 'essuie tout',1 ,'hygiènes');
 
 INSERT INTO public.liste(
-	 "alimentaire_id", "bébé_id", "entretien_nettoyage_id", "hygiène_id")
+	 "alimentaire_id", "bébé_id", "entretien_id", "hygiène_id")
 	VALUES 
 	( 1,1,1,1);
 	

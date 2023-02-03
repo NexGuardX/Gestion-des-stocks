@@ -1,6 +1,6 @@
 BEGIN;
 -- faire place nette avant de créer les tables
-DROP TABLE IF EXISTS alimentaire, bébé, entretien_nettoyage, hygiène, liste;
+DROP TABLE IF EXISTS alimentaire, bébé, entretien, hygiène, liste;
 
 CREATE TABLE alimentaire (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -24,7 +24,7 @@ CREATE TABLE bébé (
 );
 
 
-CREATE TABLE entretien_nettoyage (
+CREATE TABLE entretien (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     article text NOT NULL,
     quantité int NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE liste (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "alimentaire_id" integer NOT NULL REFERENCES "alimentaire" ("id"),
     "bébé_id" integer NOT NULL REFERENCES "bébé" ("id"),
-    "entretien_nettoyage_id" integer NOT NULL REFERENCES "entretien_nettoyage" ("id"),
+    "entretien_id" integer NOT NULL REFERENCES "entretien" ("id"),
     "hygiène_id" integer NOT NULL REFERENCES "hygiène" ("id"),
     "created_at" timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
   --on peut utiliser now() aussi

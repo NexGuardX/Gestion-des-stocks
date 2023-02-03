@@ -1,10 +1,10 @@
 
 const { DataTypes, Model } = require('sequelize');
-const sequelize = require('../database');
+const sequelize = require('../database/database');
 
-class Entretien_Nettoyage extends Model { }
+class Entretien extends Model { }
 
-Entretien_Nettoyage.init ({
+Entretien.init ({
     article : {
         type: DataTypes.TEXT,
         allowNull: false
@@ -21,8 +21,8 @@ Entretien_Nettoyage.init ({
        
       
         sequelize,
-        tableName: 'entretien_Nettoyage'
+        tableName: 'entretien'
         
 
 });
-module.exports = Entretien_Nettoyage;
+module.exports = Entretien;

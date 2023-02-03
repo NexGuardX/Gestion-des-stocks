@@ -12,11 +12,11 @@ Liste.init ({
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    entretien_nettoyage_id : {
+    entretien_id : {
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    hygiène : {
+    hygiène_id : {
         type: DataTypes.INTEGER,
         allowNull: false
     }

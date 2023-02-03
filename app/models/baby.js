@@ -1,10 +1,10 @@
 
 const { DataTypes, Model } = require('sequelize');
-const sequelize = require('../database');
+const sequelize = require('../database/database');
 
-class Bébé extends Model { }
+class Baby extends Model { }
 
-Bébé.init ({
+Baby.init ({
     article : {
         type: DataTypes.TEXT,
         allowNull: false
@@ -25,4 +25,4 @@ Bébé.init ({
         
 
 });
-module.exports = Bébé;
+module.exports = Baby;
