@@ -1,5 +1,5 @@
 <%- include('partials/header.ejs') %>
-<h2>Bébé</h2>
+<h2>Hygiène</h2>
 <table>
   <thead>
     <tr>
@@ -10,18 +10,18 @@
   </thead>
   <tbody>
     <!-- Boucle sur la liste des produits -->
-    <% for (const baby of locals.babies){ %>
+    <% for (const entretien of locals.entretiens){ %>
     <tr>
-      <td><%= baby.article %></td>
-      <td><%= baby.quantité %></td>
+      <td><%= entretien.article %></td>
+      <td><%= entretien.quantité %></td>
       <td>
         <!-- Formulaire pour mettre à jour la quantité -->
-        <form action="/update-quantity/<%= baby.id %>" method="post">
-          <input type="number" name="quantité" value="<%= baby.quantité %>">
+        <form action="/update-quantity/<%= entretien.id %>" method="post">
+          <input type="number" name="quantité" value="<%= entretien.quantité %>">
           <button type="submit">Mettre à jour</button>
         </form>
         <!-- Lien pour supprimer le produit -->
-        <a href="/delete-product/<%= baby.id %>">Supprimer</a>
+        <a href="/delete-product/<%= entretien.id %>">Supprimer</a>
       </td>
     </tr>
     <% }; %>

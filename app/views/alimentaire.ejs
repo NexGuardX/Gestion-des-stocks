@@ -1,56 +1,45 @@
+
 <%- include('partials/header.ejs') %>
-<body>
-    <header>
-        <h1>Gestion des stocks</h1>
-    </header>
+<h2>Alimentaire</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Nom du produit</th>
+      <th>Quantité</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Boucle sur la liste des produits -->
+    <% for (const alimentaire of alimentaires ){ %>
+    <tr>
+      <td><%= alimentaire.article %></td>
+      <td><%= alimentaire.quantité %></td>
+      <td>
+        <!-- Formulaire pour mettre à jour la quantité -->
+        <form action="/alimentaire/<%= alimentaire.id %>" method="post">
+          <input type="number" name="quantité" value="<%= alimentaire.quantité %>">
+          <button type="submit">Mettre à jour</button>
+        </form>
+        <!-- Lien pour supprimer le produit -->
+        <a href="/alimentaire/<%= alimentaire.id %>/delete">Supprimer</a>
+      </td>
+    </tr>
+    <% }; %>
+  </tbody>
+</table>
 
-    <form>
-        <% for (const alimentaire of locals.alimentaires){ %>
-        <label for="quantite">Quantité : </label>
-        <input type="number" name="nombre" id="quantite">
-     
-        <details>
-          
-              <p>
-              <input type="radio" id="d1" name="couleurs"><label for="d1">Gris</label>
-              <input type="radio" id="d2" name="couleurs"><label for="d2">Rouge</label>
-              <input type="radio" id="d3" name="couleurs"><label for="d3">Vert</label>
-              <input type="radio" id="d4" name="couleurs"><label for="d4">Bleu</label>
-              </p>
-           <fieldset>
-        </details>
-        <input type="submit" value="Ajouter au panier">
-     </form>
+<!-- Formulaire pour ajouter un nouveau produit -->
+<h3>Ajouter un produit</h3>
+<form class="mb-5" method="post">
+  <label>article :
+    <input type="text" name="article">
+  </label>
+  <label>Quantité :
+    <input type="number" name="quantité">
+  </label>
+  <button type="submit">Ajouter</button>
+</form>
 
-       
-            <!-- One card -->
-            <div class="col-4">
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h3 class="h2">
-                           <%= alimentaire.catégorie %>
-                            <%= alimentaire.article %>
-                             <%= alimentaire.quantité %>
-                        </h3>
-                    </div>
-                    <div class="card-body d-flex flex-column justify-content-between">
-                        <h4 class="h3">
-                            
-                        </h4>
-                        <ul class="list-unstyled m-3">
-                            
-                                   
-                            </li>
-                        </ul>
-                        
-                        
-                      
-                    </div>
-                </div>
-            </div>
-            <% } %>
-    </div>
-</main>
-    
-</body>
-</html>
+
+<%- include('partials/footer.ejs') %>

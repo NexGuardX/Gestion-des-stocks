@@ -25,10 +25,8 @@ INSERT INTO public.hygiène(
 	( 'papier wc',1 ,'wc'),
 	( 'essuie tout',1 ,'hygiènes');
 
-INSERT INTO public.liste(
-	 "alimentaire_id", "bébé_id", "entretien_id", "hygiène_id")
-	VALUES 
-	( 1,1,1,1);
+
+
 	
 COMMIT;
 
