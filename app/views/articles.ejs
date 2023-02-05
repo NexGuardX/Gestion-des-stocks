@@ -1,5 +1,5 @@
 <%- include('partials/header.ejs') %>
-<h2>Entretien_nettoyage</h2>
+<h2>Articles</h2>
 <table>
   <thead>
     <tr>
@@ -10,18 +10,18 @@
   </thead>
   <tbody>
     <!-- Boucle sur la liste des produits -->
-    <% for (const entretien of locals.entretiens){ %>
+    <% for (const article of locals.articles){ %>
     <tr>
-      <td><%= entretien.article %></td>
-      <td><%= entretien.quantité %></td>
+      <td><%= article.name %></td>
+      <td><%= article.quantité %></td>
       <td>
         <!-- Formulaire pour mettre à jour la quantité -->
-        <form action="/update-quantity/<%= entretien.id %>" method="post">
-          <input type="number" name="quantité" value="<%= entretien.quantité %>">
+        <form action="/article/<%= article.id %>" method="post">
+          <input type="number" name="quantité" value="<%= article.quantité %>">
           <button type="submit">Mettre à jour</button>
         </form>
         <!-- Lien pour supprimer le produit -->
-        <a href="/delete-product/<%= entretien.id %>">Supprimer</a>
+        <a href="/article/<%= article.id %>">Supprimer</a>
       </td>
     </tr>
     <% }; %>
@@ -30,12 +30,15 @@
 
 <!-- Formulaire pour ajouter un nouveau produit -->
 <h3>Ajouter un produit</h3>
-<form action="/add-product" method="post">
+<form action="/" method="post">
   <label>Nom du produit :
     <input type="text" name="name">
   </label>
+  <label>catégorie :
+    <input type="text" name="category" value="category">
+  </label>
   <label>Quantité :
-    <input type="number" name="quantity">
+    <input type="number" name="quantité">
   </label>
   <button type="submit">Ajouter</button>
 </form>

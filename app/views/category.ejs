@@ -1,0 +1,30 @@
+<%- include('partials/header.ejs') %>
+<h2>Catégories</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Nom de la catégorie</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <!-- Boucle sur la liste des produits -->
+    <a href="/category/<%= category.id %>">
+    <tr>
+      <td><%= category.name %></td>
+      
+        <!-- Formulaire pour mettre à jour la quantité -->
+      
+        <!-- Lien pour supprimer le produit -->
+        <a href="/category/<%= category.id %>">Supprimer</a>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<!-- Formulaire pour ajouter un nouveau produit -->
+
+
+<%- include('partials/footer.ejs') %>

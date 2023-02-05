@@ -1,30 +1,32 @@
 BEGIN;
 
-INSERT INTO public.alimentaire(
-	 "article", "quantité", "catégorie")
+INSERT INTO public.category(
+	 "id","name")
 	VALUES 
-	( 'Yaourt',1 ,'Frais'),
-	( 'Fromage',1 ,'Frais'),
-	( 'Café',1 ,'Epiceries'),
-	( 'poulet',1 ,'Viandes');
+	( 1,'frais'),
+	( 2,'surgelé'),
+	( 3,'pain-viennoiserie'),
+	( 4,'épicerie-salée'),
+	( 5,'épicerie-sucré'),
+	( 6,'boisson'),
+	( 7,'fruits-légumes'),
+	( 8,'bébé'),
+	( 9,'entretien-nettoyage'),
+	( 10,'viande'),
+	( 11,'hygiène'),
+	( 12,'autre');
 
-INSERT INTO public.bébé(
-	 "article", "quantité", "catégorie")
+
+INSERT INTO public.article(
+	 "name", "quantité", "category_id")
 	VALUES 
-	( 'couche',1 ,'hygiènes');
-
-INSERT INTO public.entretien(
-	 "article", "quantité", "catégorie")
-	VALUES 
-	( 'lessive',1 ,'lessives');
-
-
-INSERT INTO public.hygiène(
-	 "article", "quantité", "catégorie")
-	VALUES 
-	( 'papier wc',1 ,'wc'),
-	( 'essuie tout',1 ,'hygiènes');
-
+	( 'Yop',1 ,1),
+	( 'Fromage',1 ,1),
+	( 'Café',1 ,5),
+	( 'poulet',1 ,10),
+	( 'couche',1 ,8),
+	( 'lessive',1 ,9),
+	( 'papier',1 ,11);
 
 
 	

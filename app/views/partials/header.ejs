@@ -28,17 +28,8 @@
     <a href="/" class="h3 text-white text-decoration-none">Stock</a>
     <nav class="my-1">
       <a class="p-2 text-white" href="/">Accueil</a>
-      <a class="p-2 text-white" href="/tags">Liste</a>
-      <% if(!locals.user) {%>
-        <a class="p-2 text-white" href="/alimentaire">alimentaire</a>
-        <a class="p-2 text-white" href="/baby">baby</a>
-        <a class="p-2 text-white" href="/entretien">Entretien_nettoyage</a>
-        <a class="p-2 text-white" href="/hygiène">Hygiène</a>
-        <% } else {%>
-          <a class="text-white" href="/profil">
-            <%= locals.user.firstname %>
-          </a>
-          (<a class="p-2 text-white" href="/logout">déconnexion</a>)
-          <% } %>
+      <a class="p-2 text-white" href="/category">Catégories</a>
+     
+        
     </nav>
   </header>

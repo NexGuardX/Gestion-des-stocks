@@ -2,10 +2,10 @@
 const { DataTypes, Model } = require('sequelize');
 const sequelize = require('../database/database');
 
-class Entretien extends Model { }
+class Article extends Model { }
 
-Entretien.init ({
-    article : {
+Article.init ({
+    name : {
         type: DataTypes.TEXT,
         allowNull: false
     },
@@ -13,7 +13,7 @@ Entretien.init ({
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    catégorie : {
+    category_id : {
         type: DataTypes.INTEGER,
         allowNull: false
     }
@@ -21,8 +21,8 @@ Entretien.init ({
        
       
         sequelize,
-        tableName: 'entretien'
+        tableName: 'article'
         
 
 });
-module.exports = Entretien;
+module.exports = Article;

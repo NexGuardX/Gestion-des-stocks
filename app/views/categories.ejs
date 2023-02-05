@@ -1,27 +1,24 @@
 <%- include('partials/header.ejs') %>
-<h2>Bébé</h2>
+<h2>Catégories</h2>
 <table>
   <thead>
     <tr>
-      <th>Nom du produit</th>
-      <th>Quantité</th>
+      <th>Nom de la catégorie</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <!-- Boucle sur la liste des produits -->
-    <% for (const baby of locals.babies){ %>
+    <% for (const category of locals.categories){ %>
     <tr>
-      <td><%= baby.article %></td>
-      <td><%= baby.quantité %></td>
+      <td><%= category.name %></td>
       <td>
         <!-- Formulaire pour mettre à jour la quantité -->
-        <form action="/update-quantity/<%= baby.id %>" method="post">
-          <input type="number" name="quantité" value="<%= baby.quantité %>">
+        <form action="/update-quantity/<%= category.id %>" method="post">
           <button type="submit">Mettre à jour</button>
         </form>
         <!-- Lien pour supprimer le produit -->
-        <a href="/delete-product/<%= baby.id %>">Supprimer</a>
+        <a href="/delete-product/<%= category.id %>">Supprimer</a>
       </td>
     </tr>
     <% }; %>

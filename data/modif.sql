@@ -1,0 +1,6 @@
+BEGIN;
+
+ALTER TABLE article
+    ALTER COLUMN quantité DROP DEFAULT;
+
+COMMIT;

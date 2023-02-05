@@ -1,0 +1,35 @@
+
+<%- include('partials/header.ejs') %>
+<h2>article</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Nom du produit</th>
+      <th>Quantité</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Boucle sur la liste des produits -->
+  
+      <a href="/article/<%= article.id %>">
+    <tr>
+      <td><%= article.name %></td>
+      <td><%= article.quantité %></td>
+      <td>
+        <!-- Formulaire pour mettre à jour la quantité -->
+        <form action="/article/<%= article.id %>" method="post">
+          <button type="submit">Mettre à jour<input type="number" name="quantité" value="<%= article.quantité %>"></button>
+          
+        </form>
+        <!-- Lien pour supprimer le produit -->
+        <a href="/article/<%= article.id %>/delete">Supprimer</a>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+<%- include('partials/footer.ejs') %>
