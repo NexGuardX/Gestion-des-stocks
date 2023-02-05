@@ -1,6 +1,6 @@
 BEGIN;
 
 ALTER TABLE article
-    ALTER COLUMN quantité DROP DEFAULT;
+    ALTER COLUMN category_id DROP NOT NULL;
 
 COMMIT;

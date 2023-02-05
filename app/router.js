@@ -13,7 +13,7 @@ router.get('/category/:id', categoryController.getOneCategory);
 router.post('/article/:id', articleController.UpdateArticle);
 //router.post('/alimentaire', alimentaireController.deletArticle);
 router.post('/article', articleController.addArticle);
-
+router.post('./article/:id', articleController.deletArticle);
 
 
 

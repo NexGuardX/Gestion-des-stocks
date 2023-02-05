@@ -55,13 +55,16 @@ module.exports = {
     }
   },
   async addArticle(request, response) {
-      // on récupére le nom envoyé via le form
-      const { name, quantité, category } = request.body;
+      
+      const { name, quantité } = request.body;
+      const categoryId = request.params.id;
+      const category = request.body.id;
       console.log('ici');
       try {
-        // on crée le niveau (create -> build + save)
-        const newArticle = await Article.create({ name: articleName, quantité: articleQuantité, category: articleCategory });
-        // on redirige vers la liste des niveaux
+        
+        const newArticle = await Article.create({ name: name, quantité: quantité, category: categoryId });
+        
+        console.log('save ok');
         response.redirect('/articles');
       } catch (err) {
         console.error(err);
@@ -69,15 +72,25 @@ module.exports = {
       }
     },
   
-  async deletArticle(req, res) {
-    
+  async deletArticle(request, response) {
+    const articleId = request.params.id;
     try {
-      const deleArticle = await Article.destroy({ where: { id: req.params.id } })
-      res.redirect("/alimenataire");
-    } catch(err) {
+      // on récupére le niveau depuis la db.
+      const article = await Article.findByPk(articleId);
+      // si pas de niveau avec cet id -> 404
+      if (!article) {
+        return response.status(404).render('404');
+      }
+      // on efface le niveau de db
+      await article.destroy();
+      console.log('delete ok');
+      // on redirige vers la liste des niveaux
+      response.redirect('/article')
+    } catch (err) {
       console.error(err);
-      response.status(500).send("Erreur lors de la suppression de l'article")
+      response.status(500).render('500');
     }
+   
   }
 };
 

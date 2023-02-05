@@ -23,7 +23,10 @@
           
         </form>
         <!-- Lien pour supprimer le produit -->
-        <a href="/article/<%= article.id %>/delete">Supprimer</a>
+        <form action="/article/<%= article.id %>" method="post">
+         <a href="/article/<%= article.id %>">Supprimer</a>
+        </form>
+        
       </td>
     </tr>
     
