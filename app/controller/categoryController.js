@@ -1,5 +1,5 @@
 
-const { Category } = require('../models');
+const { Category, Product } = require('../models');
 
 module.exports = {
   //affichage de la page d'accueil
@@ -21,7 +21,7 @@ module.exports = {
     try {
       // on récupére les quiz avec mes associations 'author' et 'tags'
       const category = await Category.findByPk(categoryId, {
-        include: ["article"],
+        include: ["product"],
       });
 
       

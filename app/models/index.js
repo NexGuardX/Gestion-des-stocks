@@ -1,18 +1,18 @@
-const Article = require("./article");
+const Product = require("./product");
 const Category = require("./category");
 
 
-Category.hasMany(Article, {
+Category.hasMany(Product, {
     foreignKey: "category_id",
-    as: "article"
+    as: "products"
   })
 
-  Article.belongsTo(Category, {
+  Product.belongsTo(Category, {
     foreignKey: "category_id",
     as: "category"
   })
 
 module.exports = {
     Category,
-    Article
+    Product
 }

@@ -1,6 +1,6 @@
 
 <%- include('partials/header.ejs') %>
-<h2>article</h2>
+<h2>product</h2>
 <table>
   <thead>
     <tr>
@@ -12,19 +12,19 @@
   <tbody>
     <!-- Boucle sur la liste des produits -->
   
-      <a href="/article/<%= article.id %>">
+      <a href="/product/<%= product.id %>">
     <tr>
-      <td><%= article.name %></td>
-      <td><%= article.quantité %></td>
+      <td><%= product.name %></td>
+      <td><%= product.quantity %></td>
       <td>
         <!-- Formulaire pour mettre à jour la quantité -->
-        <form action="/article/<%= article.id %>" method="post">
-          <button type="submit">Mettre à jour<input type="number" name="quantité" value="<%= article.quantité %>"></button>
+        <form action="/product/<%= product.id %>" method="post">
+          <button type="submit">Mettre à jour<input type="number" name="quantity" value="<%= product.quantity %>"></button>
           
         </form>
         <!-- Lien pour supprimer le produit -->
-        <form action="/article/<%= article.id %>" method="post">
-         <a href="/article/<%= article.id %>">Supprimer</a>
+        <form action="/product/<%= product.id %>" method="post">
+         <a href="/product/<%= product.id %>">Supprimer</a>
         </form>
         
       </td>

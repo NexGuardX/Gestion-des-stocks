@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "DEBUG=* node index.js",
     "start": "nodemon index.js"
   },
   "repository": {
@@ -22,10 +23,12 @@
     "active": "^1.1.0",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
+    "debug": "^4.3.4",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
     "email-validator": "^2.0.4",
     "express": "^4.18.2",
+    "express-jsdoc-swagger": "^1.8.0",
     "express-session": "^1.17.3",
     "fs": "^0.0.1-security",
     "path": "^0.12.7",

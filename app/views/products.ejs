@@ -1,0 +1,54 @@
+<%- include('partials/header.ejs') %>
+<h2>products</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Nom du produit</th>
+      <th>quantity</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Boucle sur la liste des produits -->
+    <% for (const product of locals.products){ %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.quantity %></td>
+      <td>
+        <!-- Formulaire pour mettre à jour la quantity -->
+        <form action="/product/<%= product.id %>" method="post">
+          <input type="number" name="quantity" value="<%= product.quantity %>">
+          <button type="submit">Mettre à jour</button>
+        </form>
+        <!-- Lien pour supprimer le produit -->
+        <a href="/product/<%= product.id %>">Supprimer</a>
+      </td>
+    </tr>
+    <% }; %>
+  </tbody>
+</table>
+
+<!-- Formulaire pour ajouter un nouveau produit -->
+<h3>Ajouter un produit</h3>
+<form action="/product/" method="post">
+  <label>Nom du produit :
+    <input type="text" name="name">
+  </label>
+ 
+  <label>category :
+  <select name="category" id="category_select">
+    <option value="">--Please choose a category--</option>
+    <% for (const category of products){ %>
+    <option value="category" > <%= category.name %>
+    </option>
+  <% }; %>
+    </select>
+  </label>
+  
+  <label>quantity :
+    <input type="number" name="quantity">
+  </label>
+  <button type="submit">Ajouter</button>
+</form>
+
+<%- include('partials/footer.ejs') %>

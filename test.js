@@ -12,3 +12,7 @@ const { Alimentaire } = require('./app/models/alimentaire');
   };
 
   getallAlimentaire();
+
+
+  <% for (const category of locals.products){ %>
+    <% }; %>

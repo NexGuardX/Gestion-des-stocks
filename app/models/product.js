@@ -2,14 +2,14 @@
 const { DataTypes, Model } = require('sequelize');
 const sequelize = require('../database/database');
 
-class Article extends Model { }
+class Product extends Model { }
 
-Article.init ({
+Product.init ({
     name : {
         type: DataTypes.TEXT,
         allowNull: false
     },
-    quantité : {
+    quantity : {
         type: DataTypes.INTEGER,
         allowNull: false
     },
@@ -21,8 +21,8 @@ Article.init ({
        
       
         sequelize,
-        tableName: 'article'
+        tableName: 'product'
         
 
 });
-module.exports = Article;
+module.exports = Product;
