@@ -13,7 +13,7 @@ CREATE TABLE "category" (
 CREATE TABLE "product" (
     "id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" text NOT NULL UNIQUE,
-    "quantité" int NOT NULL,
+    "quantity" int NOT NULL,
     "category_id" integer NOT NULL REFERENCES "category" ("id"),
     "created_at" timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
   --on peut utiliser now() aussi
@@ -21,7 +21,11 @@ CREATE TABLE "product" (
    
 );
 
-
+CREATE TABLE "product_has_category" (
+    "product_id" INTEGER REFERENCES "product"("id"),
+    "category_id" INTEGER REFERENCES "category"("id"),
+    PRIMARY KEY ("product_id", "category_id")
+);
 
 
 

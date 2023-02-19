@@ -1,49 +1,75 @@
+const { PrismaClient } = require('@prisma/client');
+const bodyParser = require('body-parser');
 
-const { Category, Product } = require('../models');
+const prisma = new PrismaClient();
 
 module.exports = {
   //affichage de la page d'accueil
   async getAllCategory(request, response) {
     try {
       // on récupére les quiz avec mes associations 'author' et 'tags'
-      const categories = await Category.findAll({});
+      const categories = await prisma.category.findMany({});
+      console.log('hello');
 
-      
       // on renvoie le rendu de la home à laquelle on passe le tableau des quiz
-      response.render('categories' ,{ categories })
+      response.render('categories', { categories });
     } catch (err) {
       console.error(err);
       response.status(500).send(err);
     }
   },
   async getOneCategory(request, response) {
-    const categoryId = request.params.id;
+    const { id } = request.params;
     try {
       // on récupére les quiz avec mes associations 'author' et 'tags'
-      const category = await Category.findByPk(categoryId, {
-        include: ["product"],
+      const category = await prisma.category.findUniqueOrThrow({
+        where: { id: Number(id) },
       });
 
-      
       // on renvoie le rendu de la home à laquelle on passe le tableau des quiz
-      response.render('category', { category })
+      response.json({ category });
     } catch (err) {
       console.error(err);
       response.status(500).send(err);
     }
   },
-  async addCategory(req, res) {
+  // eslint-disable-next-line consistent-return
+  async createCategory(request, response) {
     // on récupére le nom envoyé via le form
-    const categoryName = req.body.name;
+    console.log('test');
+    const { name } = request.body;
+    console.log('ici');
     try {
       // on crée le niveau (create -> build + save)
-      await Category.create({ name: categoryName });
+      const category = await prisma.category.create({
+        data:
+        {
+
+          name,
+
+        },
+      });
       // on redirige vers la liste des niveaux
-      res.redirect('/category');
+      console.log('c bon');
+      response.render(category);
     } catch (err) {
-      console.error(err);
-      response.status(500).render('500');
+      return response.status(500).json(err);
+    }
+  },
+  // eslint-disable-next-line consistent-return
+  async deleteCategory(request, response) {
+    const { id } = request.params;
+    try {
+      const deleteCat = await prisma.category.delete({
+        where: {
+          id: Number(id),
+        },
+
+      });
+      console.log('c bon');
+      response.json(deleteCat);
+    } catch (err) {
+      return response.status(500).json(err);
     }
   },
 };
-
