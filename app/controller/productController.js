@@ -1,8 +1,8 @@
-const { PrismaClient } = require('@prisma/client');
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-module.exports = {
+const productController = {
   // affichage de la page d'accueil
   async getAllProduct(request, response) {
     try {
@@ -10,7 +10,7 @@ module.exports = {
       const products = await prisma.product.findMany({});
 
       // on renvoie le rendu de la home à laquelle on passe le tableau des quiz
-      response.render('products', { products });
+      response.render("products", { products });
     } catch (err) {
       console.error(err);
       response.status(500).send(err);
@@ -47,18 +47,18 @@ module.exports = {
       });
       // si pas d'aliment avec cet id -> 404
 
-      console.log('save ok');// sauvegarde le niveau modifié en db
+      console.log("save ok"); // sauvegarde le niveau modifié en db
       response.json({ product });
     } catch (err) {
       console.error(err);
-      response.status(500).render('500');
+      response.status(500).render("500");
     }
   },
   async addProduct(request, response) {
     // eslint-disable-next-line camelcase
     const { name, quantity, category_id } = request.body;
 
-    console.log('ici');
+    console.log("ici");
     try {
       const newProduct = await prisma.product.create({
         data: {
@@ -68,11 +68,11 @@ module.exports = {
           category: { connect: { id: category_id } },
         },
       });
-      console.log('save ok');
+      console.log("save ok");
       response.json({ newProduct });
     } catch (err) {
       console.error(err);
-      response.status(500).render('500');
+      response.status(500).render("500");
     }
   },
 
@@ -86,16 +86,18 @@ module.exports = {
       });
       // si pas de niveau avec cet id -> 404
       if (!product) {
-        return response.status(404).render('404');
+        return response.status(404).render("404");
       }
       // on efface le niveau de db
 
-      console.log('delete ok');
+      console.log("delete ok");
       // on redirige vers la liste des niveaux
       response.json({ product });
     } catch (err) {
       console.error(err);
-      response.status(500).render('500');
+      response.status(500).render("500");
     }
   },
 };
+
+export default productController;

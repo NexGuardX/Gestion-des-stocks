@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/Karim-romdhane/Gestion-des-stocks#readme",
   "dependencies": {
-    "@prisma/client": "^4.10.1",
+    "@prisma/client": "^4.11.0",
     "active": "^1.1.0",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
@@ -45,6 +45,11 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
     "nodemon": "^2.0.20",
-    "prisma": "^4.10.1"
+    "prisma": "^4.11.0"
+  },
+  "type": "module",
+  "prisma": {
+    "seed": "bash prisma/seed.sh"
   }
+
 }
