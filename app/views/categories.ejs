@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Nom de la catégorie</th>
-      <th>Actions</th>
+      <th>Identifiant</th>
     </tr>
   </thead>
   <tbody>
@@ -12,6 +12,7 @@
     <% for (const category of locals.categories){ %>
     <tr>
       <td><%= category.name %></td>
+      <td><%= category.id %></td>
       <td>
         <!-- Formulaire pour mettre à jour la quantité -->
         <form action="/update-quantity/<%= category.id %>" method="post">
@@ -26,13 +27,10 @@
 </table>
 
 <!-- Formulaire pour ajouter un nouveau produit -->
-<h3>Ajouter un produit</h3>
-<form action="/add-product" method="post">
-  <label>Nom du produit :
+<h3>Ajouter une catégorie</h3>
+<form action="/category/" method="POST">
+  <label>Nom de la catégorie :
     <input type="text" name="name">
-  </label>
-  <label>Quantité :
-    <input type="number" name="quantity">
   </label>
   <button type="submit">Ajouter</button>
 </form>

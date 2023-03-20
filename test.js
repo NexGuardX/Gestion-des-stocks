@@ -16,3 +16,9 @@ const { Alimentaire } = require('./app/models/alimentaire');
 
   <% for (const category of locals.products){ %>
     <% }; %>
+
+  
+
+    INSERT INTO
+    "product_has_category"("product_id", "category_id")
+VALUES (29, 49), (30, 49), (31, 53), (32, 58), (33, 56), (34, 57), (35, 59);
